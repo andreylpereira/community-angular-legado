@@ -1,0 +1,11 @@
+.itens {
+  @apply hover:bg-gray-500 hover:bg-opacity-10 dark:hover:bg-opacity-50 hover:text-emerald-500 flex items-center py-1.5 px-4 rounded space-x-2 cursor-pointer;
+
+}
+.item-active {
+  @apply bg-gray-300 bg-opacity-30 dark:bg-slate-800 text-emerald-600 flex items-center justify-between py-1.5 px-4 rounded cursor-pointer;
+}
+
+hr {
+  @apply my-8 h-px bg-gray-300 border-0 dark:bg-emerald-500;
+}

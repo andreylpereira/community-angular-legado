@@ -3,6 +3,7 @@
 @tailwind components;
 @tailwind utilities;
 
+
 body {
-  @apply bg-white dark:bg-slate-800;
+  @apply bg-slate-50 dark:bg-gray-800 text-gray-500 dark:text-slate-400;
 }
