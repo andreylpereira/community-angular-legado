@@ -1,13 +1,13 @@
-import { AuthGuardService } from './../../services/auth-guard/auth-guard.service';
-import { Component, OnChanges, OnInit } from '@angular/core';
-import { Router,NavigationEnd } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import { AuthGuardService } from 'src/app/services/auth-guard/auth-guard.service';
 
 @Component({
-  selector: 'app-sidebar',
-  templateUrl: './sidebar.component.html',
-  styleUrls: ['./sidebar.component.css'],
+  selector: 'app-panel-control',
+  templateUrl: './panel-control.component.html',
+  styleUrls: ['./panel-control.component.css']
 })
-export class SidebarComponent implements OnInit {
+export class PanelControlComponent implements OnInit {
   theme: any;
   isAuth: boolean = false;
 
@@ -42,6 +42,7 @@ export class SidebarComponent implements OnInit {
         this.theme = 'dark';
         localStorage.setItem('color-theme', this.theme);
       }
-    }
-  }
+    }}
+
+
 }
