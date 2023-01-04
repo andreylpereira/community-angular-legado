@@ -15,7 +15,7 @@ const routes: Routes = [
   },
   { path: 'login', component: LoginComponent },
   { path: '404', component: NotFoundComponent },
-  { path: '**', redirectTo: '404' },
+  // { path: '**', redirectTo: '404', pathMatch: 'full' },
   {
     path: 'control-panel',
     loadChildren: () =>

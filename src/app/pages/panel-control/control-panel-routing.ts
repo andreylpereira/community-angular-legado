@@ -15,31 +15,26 @@ const routes: Routes = [
     children: [
       {
         path: 'contracts',
-        component: ContractComponent
-
+        component: ContractComponent,
       },
       {
         path: 'calendar',
-        component: CalendarComponent
-
+        component: CalendarComponent,
       },
       {
         path: 'forms',
-        component: FormsComponent
-
+        component: FormsComponent,
       },
       {
-        path: 'information',
-        component: InformationComponent
-
+        path: 'informations',
+        component: InformationComponent,
       },
       {
         path: 'register',
-        component: RegisterComponent
-
+        component: RegisterComponent,
       },
     ],
-  }
+  },
 ];
 
 @NgModule({

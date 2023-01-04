@@ -1,6 +1,6 @@
 import { AuthGuardService } from './../../services/auth-guard/auth-guard.service';
-import { Component, OnChanges, OnInit } from '@angular/core';
-import { Router,NavigationEnd } from '@angular/router';
+import { Component, OnInit } from '@angular/core';
+
 
 @Component({
   selector: 'app-sidebar',
