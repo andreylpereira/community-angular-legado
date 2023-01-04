@@ -1,3 +1,4 @@
+import { LoginService } from 'src/app/services/login.service';
 import { AuthGuardService } from './../../services/auth-guard/auth-guard.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -11,7 +12,7 @@ export class SidebarComponent implements OnInit {
   theme: any;
   isAuth: boolean = false;
 
-  constructor(private auth: AuthGuardService) {
+  constructor(private auth: AuthGuardService, private loginService: LoginService) {
     this.isAuth = this.auth.canActivate();
   }
 
@@ -43,5 +44,9 @@ export class SidebarComponent implements OnInit {
         localStorage.setItem('color-theme', this.theme);
       }
     }
+  }
+
+  public logout() {
+    this.loginService.logOut();
   }
 }

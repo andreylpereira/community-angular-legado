@@ -11,12 +11,21 @@ export class AuthInterceptor implements HttpInterceptor {
   constructor(private loginService: LoginService) {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
-    const user = this.loginService.getUser();
-    req = req.clone({
-      setHeaders: {
-        Authorization: 'Bearer ' + user?.token,
-      },
-    });
+
+    const session: any = localStorage.getItem('currentUser');
+    const data = JSON.parse(session);
+
+
+    if (data !== null) {
+
+      req = req.clone({
+        setHeaders: {
+          Authorization: data?.token,
+        },
+      });
+
+
+    }
     return next.handle(req);
   }
 }

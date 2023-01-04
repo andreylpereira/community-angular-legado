@@ -12,26 +12,32 @@ const routes: Routes = [
   {
     path: '',
     component: PanelControlComponent,
+    canActivate: [AuthGuard],
     children: [
       {
         path: 'contracts',
         component: ContractComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'calendar',
         component: CalendarComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'forms',
         component: FormsComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'informations',
         component: InformationComponent,
+        canActivate: [AuthGuard]
       },
       {
         path: 'register',
         component: RegisterComponent,
+        canActivate: [AuthGuard]
       },
     ],
   },

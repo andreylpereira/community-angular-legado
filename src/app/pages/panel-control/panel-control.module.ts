@@ -18,13 +18,11 @@ import { SidebarComponent } from 'src/app/shared/sidebar/sidebar.component';
     NotFoundComponent,
     NavbarComponent,
     HomeComponent,
-    SidebarComponent,
     ContractComponent,
     InformationComponent,
     RegisterComponent,
     FormsComponent,
     CalendarComponent,
-    SidebarComponent
   ],
   imports: [
     CommonModule,
