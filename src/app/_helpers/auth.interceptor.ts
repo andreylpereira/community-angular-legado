@@ -1,4 +1,3 @@
-import { LoginService } from '../services/login.service';
 import { Injectable } from '@angular/core';
 import {
   HttpRequest,
@@ -8,13 +7,12 @@ import {
 
 @Injectable()
 export class AuthInterceptor implements HttpInterceptor {
-  constructor(private loginService: LoginService) {}
+  constructor() {}
 
   intercept(req: HttpRequest<any>, next: HttpHandler) {
 
     const session: any = localStorage.getItem('currentUser');
     const data = JSON.parse(session);
-
 
     if (data !== null) {
 
@@ -23,7 +21,6 @@ export class AuthInterceptor implements HttpInterceptor {
           Authorization: data?.token,
         },
       });
-
 
     }
     return next.handle(req);

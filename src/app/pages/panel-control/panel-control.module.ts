@@ -1,3 +1,5 @@
+import { SidebarComponent } from './../../shared/sidebar/sidebar.component';
+import { AppModule } from './../../app.module';
 import { ControlPanelRoutingModule } from './control-panel-routing';
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
@@ -9,14 +11,13 @@ import { HomeComponent } from 'src/app/pages/panel-control/home/home.component';
 import { InformationComponent } from 'src/app/pages/panel-control/information/information.component';
 import { RegisterComponent } from 'src/app/pages/panel-control/register/register.component';
 import { NavbarComponent } from 'src/app/shared/navbar/navbar.component';
-import { SidebarComponent } from 'src/app/shared/sidebar/sidebar.component';
+import { ReactiveFormsModule } from '@angular/forms';
 
 
 
 @NgModule({
   declarations: [
     NotFoundComponent,
-    NavbarComponent,
     HomeComponent,
     ContractComponent,
     InformationComponent,
@@ -26,7 +27,8 @@ import { SidebarComponent } from 'src/app/shared/sidebar/sidebar.component';
   ],
   imports: [
     CommonModule,
-    ControlPanelRoutingModule
+    ControlPanelRoutingModule,
+    ReactiveFormsModule
   ]
 })
 export class PanelControlModule { }
