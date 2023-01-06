@@ -1,3 +1,4 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { SidebarComponent } from './../../shared/sidebar/sidebar.component';
 import { AppModule } from './../../app.module';
 import { ControlPanelRoutingModule } from './control-panel-routing';
@@ -11,6 +12,9 @@ import { HomeComponent } from 'src/app/pages/panel-control/home/home.component';
 import { InformationComponent } from 'src/app/pages/panel-control/information/information.component';
 import { RegisterComponent } from 'src/app/pages/panel-control/register/register.component';
 import { NavbarComponent } from 'src/app/shared/navbar/navbar.component';
+
+import { ModalCalendarComponent } from './calendar/modal-calendar/modal-calendar.component';
+import { MatDialogModule } from '@angular/material';
 import { ReactiveFormsModule } from '@angular/forms';
 
 
@@ -24,11 +28,14 @@ import { ReactiveFormsModule } from '@angular/forms';
     RegisterComponent,
     FormsComponent,
     CalendarComponent,
+    ModalCalendarComponent,
   ],
   imports: [
     CommonModule,
     ControlPanelRoutingModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    MatDialogModule,
+    BrowserAnimationsModule,
   ]
 })
 export class PanelControlModule { }

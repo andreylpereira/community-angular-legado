@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialog, MatDialogConfig } from '@angular/material/dialog';
+import { ModalCalendarComponent } from 'src/app/pages/panel-control/calendar/modal-calendar/modal-calendar.component';
 
 @Component({
   selector: 'app-calendar',
@@ -7,7 +9,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
   styleUrls: ['./calendar.component.css'],
 })
 export class CalendarComponent implements OnInit {
-  constructor(private formBuilder: FormBuilder) {}
+  constructor(private formBuilder: FormBuilder, public dialog: MatDialog) {}
 
   ngOnInit(): void {}
 
@@ -21,5 +23,19 @@ export class CalendarComponent implements OnInit {
     };
 
     console.log(date.date);
+  }
+
+  openDialog(): void {
+    const dialogConfig = new MatDialogConfig();
+
+    dialogConfig.disableClose = true;
+    dialogConfig.autoFocus = true;
+
+    dialogConfig.data = {
+        id: 1,
+        title: 'Angular For Beginners'
+    };
+
+    this.dialog.open(ModalCalendarComponent, dialogConfig);
   }
 }

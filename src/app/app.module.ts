@@ -9,13 +9,18 @@ import { LoginComponent } from './pages/login/login.component';
 import { PanelControlComponent } from 'src/app/pages/panel-control/panel-control.component';
 import { ReactiveFormsModule } from '@angular/forms';
 
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { NgxMaskModule } from 'ngx-mask';
 import { JWT_OPTIONS, JwtHelperService } from '@auth0/angular-jwt';
 import { PanelControlModule } from 'src/app/pages/panel-control/panel-control.module';
 import { SidebarComponent } from 'src/app/shared/sidebar/sidebar.component';
 import { NavbarComponent } from 'src/app/shared/navbar/navbar.component';
-
+import {
+  MAT_DIALOG_DEFAULT_OPTIONS,
+  MatDialogModule,
+} from '@angular/material/dialog';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AuthInterceptor } from 'src/app/_helpers/auth.interceptor';
 
 @NgModule({
   declarations: [
@@ -23,7 +28,7 @@ import { NavbarComponent } from 'src/app/shared/navbar/navbar.component';
     LoginComponent,
     PanelControlComponent,
     SidebarComponent,
-    NavbarComponent
+    NavbarComponent,
   ],
   imports: [
     PanelControlModule,
@@ -31,14 +36,16 @@ import { NavbarComponent } from 'src/app/shared/navbar/navbar.component';
     AppRoutingModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgxMaskModule.forRoot()
+    NgxMaskModule.forRoot(),
+    MatDialogModule,
+    BrowserAnimationsModule,
   ],
   providers: [
-
-   { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
+    { provide: MAT_DIALOG_DEFAULT_OPTIONS, useValue: { hasBackdrop: false } },
+    { provide: JWT_OPTIONS, useValue: JWT_OPTIONS },
     JwtHelperService,
-    // { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
+    { provide: HTTP_INTERCEPTORS, useClass: AuthInterceptor, multi: true },
   ],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

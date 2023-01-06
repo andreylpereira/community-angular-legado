@@ -30,7 +30,8 @@ export class LoginService {
   }
 
   login(user: Login) {
-    this.http.post<any>(this.url, user).subscribe((data) => {
+
+    return this.http.post<any>(this.url, user).subscribe((data) => {
       const payload = this.jwtHelper.decodeToken(data.acessToken);
       this.currentUser.id = payload.id
       this.currentUser.sub = payload.sub
